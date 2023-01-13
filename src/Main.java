@@ -8,15 +8,15 @@ public class Main {
         int tries;
         switch (difficulty){
             case 1:
-                System.out.print("Easy");
+                System.out.println("Easy");
                 tries = 20;
                 break;
             case 2:
-                System.out.print("Medium");
+                System.out.println("Medium");
                 tries = 12;
                 break;
             case 3:
-                System.out.print("Hard");
+                System.out.println("Hard");
                 tries = 7;
                 break;
             default:
@@ -25,7 +25,7 @@ public class Main {
         }
         Random rand = new Random();
         int randomNum = rand.nextInt(50 + 1);   //range from 0 to 50
-        System.out.print("Guess the number!");
+        System.out.println("Guess the number!");
         int guessNumber;
         boolean winFlag = false;
         do{
@@ -35,11 +35,13 @@ public class Main {
             } else {
                 System.out.print("Guess again...");
                 if (guessNumber > randomNum){
-                    System.out.print("Your number is greater");
-                } else {
-                    System.out.print("Your number is less");
+                    System.out.println("Your number is greater. Try less");
+                }
+                if (guessNumber < randomNum){
+                    System.out.println("Your number is less. Try greater");
                 }
             }
+            System.out.println("You have " + --tries + " tries");
         }while(guessNumber != randomNum && tries > 0);
         if (winFlag){
             System.out.print("YOU WON!!! CONGRATS!!!");
